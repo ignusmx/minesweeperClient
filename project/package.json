@@ -1,0 +1,71 @@
+{
+  "name": "minesweeperclient",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "build-android": "react-native run-android",
+    "build-ios": "react-native run-ios",
+    "start-native": "react-native start",
+    "start": "react-native start",
+    "start-web": "react-scripts start",
+    "build-web": "react-scripts build",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "web": "webpack serve -d source-map --mode development --config \"./web/webpack.config.js\" --color --hot",
+    "build:web": "webpack --mode production --config \"./web/webpack.config.js\" --hot"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "^18.0.0",
+    "react-native": "0.68.0",
+    "react-native-web": "^0.17.7",
+    "react-scripts": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^14.0.4",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@types/react-native": "^0.67.3",
+    "@types/react-test-renderer": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.4",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-react-native-web": "^0.17.7",
+    "eslint": "^7.32.0",
+    "favicons-webpack-plugin": "^5.0.2",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.67.0",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^4.4.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1",
+    "webpack-pwa-manifest": "^4.3.0"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native-web",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

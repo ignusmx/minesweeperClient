@@ -3,18 +3,16 @@ import * as types from '../constants/ActionTypes'
 let nextMessageId = 0
 const nextUserId = 0
 
-export const addMessage = (message, author) => ({
+export const addMessage = (message) => ({
   type: types.ADD_MESSAGE,
   id: nextMessageId++,
-  message,
-  author
+  message
 })
 
-export const messageReceived = (message, author) => ({
+export const messageReceived = (message) => ({
   type: types.MESSAGE_RECEIVED,
   id: nextMessageId++,
-  message,
-  author
+  message
 })
 
 export const populateUsersList = users => ({

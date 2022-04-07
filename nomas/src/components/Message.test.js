@@ -6,7 +6,6 @@ import Message from './Message'
 
 const setup = () => {
   const props = {
-    author: 'Tony',
     message: 'Yeah'
   }
   Enzyme.configure({ adapter: new Adapter() })

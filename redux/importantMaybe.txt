@@ -1,0 +1,4 @@
+CN=James Sulo, OU=Ignus, O=Ignus, L=Xanadu, ST=Shangri La, C=XN
+Enter key password for <keyalias>
+        (RETURN if same as keystore password):
+[Storing keystore.jks]

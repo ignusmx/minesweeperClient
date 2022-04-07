@@ -13,15 +13,16 @@
     "build-web": "react-scripts build",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "web": "webpack serve -d source-map --mode development --config \"./web/webpack.config.js\" --color --hot",
+    "web": "webpack serve -d eval --mode development --config \"./web/webpack.config.js\" --inline --color --hot",
     "build:web": "webpack --mode production --config \"./web/webpack.config.js\" --hot"
   },
   "dependencies": {
     "react": "17.0.2",
-    "react-dom": "^18.0.0",
+    "react-dom": "^17.0.0",
     "react-native": "0.68.0",
     "react-native-web": "^0.17.7",
-    "react-scripts": "^5.0.0"
+    "react-scripts": "^5.0.0",
+	"react-native-gradle-plugin": "^0.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -49,10 +50,9 @@
     "react-test-renderer": "17.0.2",
     "typescript": "^4.4.4",
     "url-loader": "^4.1.1",
-    "webpack": "^5.71.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.1",
-    "webpack-pwa-manifest": "^4.3.0"
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "resolutions": {
     "@types/react": "^17"

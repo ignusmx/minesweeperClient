@@ -18,13 +18,22 @@ import {
   View,
 } from 'react-native';
 
-/*import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';*/
+// import {
+//   Colors,
+//   DebugInstructions,
+//   Header,
+//   LearnMoreLinks,
+//   ReloadInstructions,
+// } from 'react-native/Libraries/NewAppScreen';
+
+const Colors = {
+  white: '#fff',
+  black: '#000',
+  light: '#ddd',
+  dark: '#333',
+  lighter: '#eee',
+  darker: '#111',
+};
 
 const Section = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -65,7 +74,7 @@ const App = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        {/* <Header /> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -75,15 +84,18 @@ const App = () => {
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
-            <ReloadInstructions />
+            {/* <ReloadInstructions /> */}
+            <Text>Reload Instruction</Text>
           </Section>
           <Section title="Debug">
-            <DebugInstructions />
+            {/* <DebugInstructions /> */}
+            <Text>Debug Instruction</Text>
           </Section>
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
-          <LearnMoreLinks />
+          {/* <LearnMoreLinks /> */}
+          <Text>Learn More Links</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

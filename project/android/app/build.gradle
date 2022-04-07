@@ -132,7 +132,6 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-
     defaultConfig {
         applicationId "com.minesweeperclient"
         minSdkVersion rootProject.ext.minSdkVersion

@@ -1,15 +1,17 @@
-import React from 'react'
-import * as types from '../constants/ActionTypes'
-import { messageReceived, populateUsersList, addMessage } from '../actions'
+import React                                                              from "react"
+import ReactHtmlParser, {processNodes, convertNodeToElement, htmlparser2} from 'react-html-parser';
+import * as types                                                         from "./../constants/ActionTypes"
+import {messageReceived, populateUsersList, addMessage}                   from "./../actions"
 
-const setupSocket = (dispatch) => {
-  const socket = new WebSocket('wss://hometask.eg1236.com/game1/')
+const setupSocket = (dispatch)=>
+{
+	const socket = new WebSocket("wss://hometask.eg1236.com/game1/")
 
-  socket.onopen = () =>
-  {
-	  dispatch
-	  (
-			 messageReceived
+	socket.onopen = () =>
+	{
+		dispatch
+		(
+			messageReceived
 			(
 				<div>
 					<span>
@@ -23,25 +25,93 @@ const setupSocket = (dispatch) => {
 					</div>
 				</div>
 			)
-	)
-  }
+		)
+	}
 
-  socket.onmessage = (event) => {
-    const data = event;
-	console.log(data);
-    /*switch (data.type) {
-      case types.ADD_MESSAGE:
-        dispatch(messageReceived(data.message))
-        break
-      case types.USERS_LIST:
-        dispatch(populateUsersList(data.users))
-        break
-      default:
-        break
-    }*/
-  }
+	socket.onmessage = (event) =>
+	{
+		console.log(event);
 
-  return socket
+		if(event.data == "new: OK" || event.data.indexOf("open") == 0)
+		{
+			socket.send("map");
+		}
+		else
+		{
+			if(event.data.indexOf("map:") == 0)
+			{
+				let rows = event.data.split("\n");
+
+				rows.shift();
+
+				let map                 = [];
+				let gameOver            = false;
+				let atLeastOneUntouched = false;
+
+				for(let i = 0; i < rows.length; i++)
+				{
+					for(let j = 0; j < rows[i].length; j++)
+					{
+						if(rows[i].charAt(j) == "*")
+						{
+							gameOver = true;
+							break;
+						}
+					}
+				}
+
+				for(let i = 0; i < rows.length; i++)
+				{
+					let row = [];
+
+					for(let j = 0; j < rows[i].length; j++)
+					{
+						if(!atLeastOneUntouched && rows[i].charAt(j) == "□")
+						{
+							atLeastOneUntouched = true;
+						}
+
+						row.push
+						(
+							<td key={"c" + i + "_" + j}>
+								{
+									rows[i].charAt(j) == "□"
+											?
+										<button style={{width : 25, height : 25}} onClick={()=>socket.send("open "+ j + " " + i)}
+										  disabled={gameOver}
+										>
+										</button>
+											:
+										<div style={{width : 25, height : 25}}>
+											{rows[i].charAt(j)}
+										</div>
+								}
+							</td>
+						);
+					}
+
+					map.push(<tr key={"r" + i}>{row}</tr>);
+				}
+
+				dispatch
+				(
+					messageReceived
+					(
+						<div>
+							<table>
+								<tbody>
+									{map}
+								</tbody>
+							</table>
+							{gameOver && <div>You lose</div>}
+						</div>
+					)
+				)
+			}
+		}
+	  }
+
+	  return socket
 }
 
 export default setupSocket

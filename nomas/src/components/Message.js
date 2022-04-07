@@ -6,7 +6,7 @@ const Message = ({ message}) => (
 )
 
 Message.propTypes = {
-  message: PropTypes.any.isRequired
+  message: PropTypes.any
 }
 
 export default Message

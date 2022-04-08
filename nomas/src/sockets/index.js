@@ -1,7 +1,6 @@
-import React                                                              from "react"
-import ReactHtmlParser, {processNodes, convertNodeToElement, htmlparser2} from 'react-html-parser';
-import * as types                                                         from "./../constants/ActionTypes"
-import {messageReceived, populateUsersList, addMessage}                   from "./../actions"
+import React                         from "react"
+import * as types                    from "./../constants/ActionTypes"
+import {messageReceived, addMessage} from "./../actions"
 
 const setupSocket = (dispatch)=>
 {

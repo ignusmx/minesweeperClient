@@ -1,6 +1,6 @@
 import React                         from "react"
-import * as types                    from "./../constants/ActionTypes"
-import {messageReceived, addMessage} from "./../actions"
+import * as types                    from "./../control/actionTypes"
+import {messageReceived, addMessage} from "./../control/actions.js"
 
 const setupSocket = (dispatch)=>
 {
